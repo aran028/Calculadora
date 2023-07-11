@@ -5,6 +5,7 @@ public class ControladorCalculadora {
 	
 	private Double numeroUno;
 	private Double numeroDos;
+	private String operacion;
 	
 	
 	//Constructor
@@ -24,6 +25,14 @@ public class ControladorCalculadora {
 	}
 
 
+	public String getOperacion() {
+		return operacion;
+	}
+
+	public void setOperacion(String operacion) {
+		this.operacion = operacion;
+	}
+
 	public Double getNumeroDos() {
 		return numeroDos;
 	}
@@ -32,6 +41,23 @@ public class ControladorCalculadora {
 	public void setNumeroDos(Double numeroDos) {
 		this.numeroDos = numeroDos;
 	}
+	
+	public Double sumar(Double numeroUno, Double numeroDos) {		
+		return (numeroUno+numeroDos);
+	}
+	
+	public Double restar(Double numeroUno, Double numeroDos) {		
+		return (numeroUno-numeroDos);
+	}
+	
+	public Double multiplicar(Double numeroUno, Double numeroDos) {		
+		return (numeroUno*numeroDos);
+	}
+	
+	public Double dividir(Double numeroUno, Double numeroDos) {		
+		return (numeroUno/numeroDos);
+	}
+	
 	
 	
 	

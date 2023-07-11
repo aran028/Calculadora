@@ -21,6 +21,7 @@ public class PantallaCalculadora extends JFrame {
 	private JTextField consola;
 	private ControladorCalculadora controlador;
 
+
 	/**
 	 * Launch the application.
 	 */
@@ -151,8 +152,7 @@ public class PantallaCalculadora extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 									consola.setText(consola.getText()+"0");
 		
-			}
-				
+			}				
 			
 		});
 		botonCero.setBounds(36, 196, 53, 23);
@@ -172,23 +172,93 @@ public class PantallaCalculadora extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				//Almaceno el valor del primer numero 
 				controlador.setNumeroUno(Double.parseDouble(consola.getText()));		
-				
+				//Borro el NumeroUno
+				consola.setText("");
+				controlador.setOperacion("Suma");
 			}
 		});
 		botonSuma.setBounds(237, 99, 53, 23);
 		contentPane.add(botonSuma);
 		
 		JButton botonResta = new JButton("-");
+		botonResta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Almaceno el valor del primer numero 
+				controlador.setNumeroUno(Double.parseDouble(consola.getText()));		
+				//Borro el NumeroUno
+				consola.setText("");
+				controlador.setOperacion("Resta");			
+			}
+		});
 		botonResta.setBounds(237, 133, 53, 23);
 		contentPane.add(botonResta);
 		
 		JButton botonMultiplicacion = new JButton("*");
+		botonMultiplicacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Almaceno el valor del primer numero 
+				controlador.setNumeroUno(Double.parseDouble(consola.getText()));		
+				//Borro el NumeroUno
+				consola.setText("");
+				controlador.setOperacion("Multiplicacion");				
+			}
+		});
 		botonMultiplicacion.setBounds(237, 166, 53, 23);
 		contentPane.add(botonMultiplicacion);
 		
 		JButton botonDivision = new JButton("/");
+		botonDivision.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Almaceno el valor del primer numero 
+				controlador.setNumeroUno(Double.parseDouble(consola.getText()));		
+				//Borro el NumeroUno
+				consola.setText("");
+				controlador.setOperacion("Division");				
+				
+			}
+		});
 		botonDivision.setBounds(237, 197, 53, 23);
 		contentPane.add(botonDivision);
+		
+		JButton botonIgual = new JButton("=");
+		botonIgual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+								
+				
+				//Almaceno el valor del numero 2
+				controlador.setNumeroDos(Double.parseDouble(consola.getText()));	
+				//Borro el NumeroUno
+				consola.setText(" ");
+				if (controlador.getOperacion()=="Suma") {
+					consola.setText(String.valueOf(controlador.sumar(controlador.getNumeroUno(),controlador.getNumeroDos())));					
+				}	
+				if (controlador.getOperacion()=="Resta") {
+					consola.setText(String.valueOf(controlador.restar(controlador.getNumeroUno(),controlador.getNumeroDos())));					
+				}
+				if (controlador.getOperacion()=="Multiplicacion") {
+					consola.setText(String.valueOf(controlador.multiplicar(controlador.getNumeroUno(),controlador.getNumeroDos())));					
+				}	
+				if (controlador.getOperacion()=="Division") {
+					consola.setText(String.valueOf(controlador.dividir(controlador.getNumeroUno(),controlador.getNumeroDos())));					
+				}	
+				
+				
+				
+				
+			}
+		});
+		botonIgual.setBounds(237, 66, 53, 23);
+		contentPane.add(botonIgual);
+		
+		//Botón para borrar
+		JButton botonC = new JButton("C");
+		botonC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				consola.setText(" ");
+			}
+		});
+		botonC.setBounds(162, 67, 53, 23);
+		contentPane.add(botonC);
 		
 		
 		botonPunto.addActionListener(new ActionListener() {
