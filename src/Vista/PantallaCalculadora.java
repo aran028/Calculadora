@@ -14,6 +14,7 @@ import Controlador.ControladorCalculadora;
 import javax.swing.JTextField;
 import java.awt.Color;
 
+//Esto es una prueba
 public class PantallaCalculadora extends JFrame {
 
 	private JPanel contentPane;
